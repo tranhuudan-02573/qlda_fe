@@ -12,10 +12,12 @@ const Navbar = () => {
           </Link>
         </li>
         {categories.map((cate, index) => {
-          if (cate.name !== "Trang chủ") {
+          if (cate.name !== "Trang chủ" && cate.name !== "Giới thiệu") {
             return (
               <li className={styles.item}>
-                <Link to={cate.path}>{cate.name}</Link>
+                <Link key={index} to={cate.path}>
+                  {cate.name}
+                </Link>
               </li>
             );
           }

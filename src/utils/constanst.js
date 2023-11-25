@@ -1,5 +1,6 @@
 export const categories = [
   { name: "Trang chủ", path: "/" },
+  { name: "Giới thiệu", path: "/gioithieu" },
   { name: "Đào tạo", path: "/daotao" },
   { name: "Tuyển sinh", path: "/tuyensinh" },
   { name: "Thông báo", path: "/thongbao" },

@@ -1,0 +1,28 @@
+.wrapper {
+  background-color: white;
+  flex: 1;
+  padding: 1.5rem;
+  margin: 10px;
+}
+.title {
+  margin-bottom: 50px;
+}
+.description {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.paragraph {
+  list-style: none;
+  display: flex;
+  width: 1150px;
+  text-align: justify;
+}
+.paragraph p {
+  color: #000000;
+  line-height: 25px;
+}
+.paragraph span {
+  letter-spacing: 2px;
+  color: #154081;
+  font-weight: bold;
+}

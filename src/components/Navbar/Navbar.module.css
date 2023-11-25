@@ -15,6 +15,7 @@
   background-color: #4caf50;
   padding: 12px 0;
   text-align: center;
+  cursor: pointer;
 }
 .item a {
   color: white;

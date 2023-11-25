@@ -1,6 +1,7 @@
 import styles from "./Navbar.module.css";
 import { IoHome } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { categories } from "../../utils/constanst";
 const Navbar = () => {
   return (
     <div className={styles.container}>
@@ -10,27 +11,15 @@ const Navbar = () => {
             <IoHome />
           </Link>
         </li>
-        <li className={styles.item}>
-          <Link to="/">Đào tạo</Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="/">Nghiên cứu</Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="/">Thông báo</Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="/">Tuyển sinh</Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="/">Giảng viên</Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="/">Sinh viên</Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="/">Liên lạc cựu sinh viên</Link>
-        </li>
+        {categories.map((cate, index) => {
+          if (cate.name !== "Trang chủ") {
+            return (
+              <li className={styles.item}>
+                <Link to={cate.path}>{cate.name}</Link>
+              </li>
+            );
+          }
+        })}
       </ul>
       <hr style={{ borderBottom: "1px solid #4caf50" }} />
     </div>

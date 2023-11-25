@@ -1,0 +1,31 @@
+.container {
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 2rem;
+}
+.left {
+  width: 180px;
+  height: 180px;
+}
+.logo {
+  width: 100%;
+  height: 100%;
+}
+.center {
+  width: 60%;
+  text-align: center;
+}
+
+.center h3 {
+}
+.right {
+  width: 300px;
+  height: 200px;
+}
+.picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

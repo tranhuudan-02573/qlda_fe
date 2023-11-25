@@ -1,0 +1,17 @@
+.container {
+  padding: 20px 100px;
+  border-right: 1px solid #4caf50;
+  min-height: 65vh;
+}
+
+.item {
+  list-style: none;
+  padding: 8px 30px;
+  padding-left: 15px;
+  margin: 2px 0;
+  cursor: pointer;
+}
+.item a {
+  text-decoration: none;
+  color: #000;
+}

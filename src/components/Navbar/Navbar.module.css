@@ -21,3 +21,25 @@
   color: white;
   text-decoration: none;
 }
+.menu {
+  width: 238px;
+}
+.menu-list {
+  height: 100%;
+}
+.menu-item {
+  list-style-type: none;
+  border: 1px solid #000;
+  padding: 12px 4px;
+  cursor: pointer;
+}
+.menu-item:hover {
+  background-color: #919eab;
+}
+.menu-item a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  width: 100%;
+}

@@ -1,0 +1,41 @@
+.wrapper {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: white;
+}
+.imgContainer {
+  margin: 1rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+.imgContainer img {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+}
+.desc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.desc p {
+  width: 50%;
+  font-size: 18px;
+  color: #008080;
+}
+.table {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+.table td {
+  text-align: center;
+  padding: 2px 0;
+  font-weight: bold;
+}

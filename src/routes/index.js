@@ -10,6 +10,8 @@ import Regulation from "../pages/Regulation Page/Regulation.jsx";
 import ExecutiveBoard from "../pages/ExecutiveBoard/ExecutiveBoard.jsx";
 import Community from "../pages/Community/Community.jsx";
 import Student from "../pages/StudentPage/Student.jsx";
+import Forum from "../pages/ForumPage/Forum.jsx";
+import ForumLayout from "../layouts/ForumLayout/ForumLayout.jsx";
 const publicRoutes = [
   { path: "/", component: Home },
   { path: "/daotao", component: TrainingPage },
@@ -23,6 +25,7 @@ const publicRoutes = [
   { path: "/bandieuhanh", component: ExecutiveBoard },
   { path: "/congdong", component: Community },
   { path: "/sinhvien", component: Student },
+  { path: "/diendan", component: Forum, layout: ForumLayout },
 ];
 
 export { publicRoutes };

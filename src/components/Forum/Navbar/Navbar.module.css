@@ -1,0 +1,29 @@
+.wrapper {
+  padding: 0 25px;
+}
+.list {
+  background-color: #aac5dd;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 70%;
+}
+.home {
+  list-style-type: none;
+}
+.item {
+  padding: 5px 10px;
+  background-color: #46a9f0;
+  width: 30%;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+}
+.item a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  font-size: 20px;
+}

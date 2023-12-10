@@ -1,6 +1,5 @@
 import Home from "../pages/Home/Home.jsx";
 import TrainingPage from "../pages/Training Page/TrainingPage.jsx";
-import AdmissionsPage from "../pages/Admissions Page/AdmissionsPage.jsx";
 import AnnouncementPage from "../pages/Announcement Page/AnnouncementPage.jsx";
 import ContactPage from "../pages/Contact Page/ContactPage.jsx";
 import LecturerPage from "../pages/Lecturer Page/LecturerPage.jsx";
@@ -12,10 +11,17 @@ import Community from "../pages/Community/Community.jsx";
 import Student from "../pages/StudentPage/Student.jsx";
 import Forum from "../pages/ForumPage/Forum.jsx";
 import ForumLayout from "../layouts/ForumLayout/ForumLayout.jsx";
+import OutstandingPost from "../pages/OutstandingPost/OutstandingPost.jsx";
+import Experience from "../pages/Experience Page/Experience.jsx";
+import Member from "../pages/MemberPage/Member.jsx";
+import LoginForm from "../pages/LoginPage/Login.jsx";
+import Register from "../pages/RegisterPage/Register.jsx";
+import DetailPost from "../pages/DetailPost/DetailPost.jsx";
+import HeaderOnly from "../layouts/ForumLayout/NoNavbar/ForumLayout.jsx";
+import Profile from "../pages/Profile/Profile.jsx";
 const publicRoutes = [
   { path: "/", component: Home },
   { path: "/daotao", component: TrainingPage },
-  { path: "/tuyensinh", component: AdmissionsPage },
   { path: "/thongbao", component: AnnouncementPage },
   { path: "/nghiencuu", component: ResearchPage },
   { path: "/giangvien", component: LecturerPage },
@@ -25,7 +31,19 @@ const publicRoutes = [
   { path: "/bandieuhanh", component: ExecutiveBoard },
   { path: "/congdong", component: Community },
   { path: "/sinhvien", component: Student },
-  { path: "/diendan", component: Forum, layout: ForumLayout },
+  { path: "/forum", component: Forum, layout: ForumLayout },
+  { path: "/allPosts", component: Forum, layout: ForumLayout },
+  {
+    path: "/outstandingPosts",
+    component: OutstandingPost,
+    layout: ForumLayout,
+  },
+  { path: "/experience", component: Experience, layout: ForumLayout },
+  { path: "/members", component: Member, layout: ForumLayout },
+  { path: "/login", component: LoginForm, layout: null },
+  { path: "/signup", component: Register, layout: null },
+  { path: "/post", component: DetailPost, layout: HeaderOnly },
+  { path: "/profile", component: Profile, layout: HeaderOnly },
 ];
 
 export { publicRoutes };

@@ -1,7 +1,6 @@
 export const categories = [
   { name: "Trang chủ", path: "/" },
   { name: "Đào tạo", path: "/daotao" },
-  { name: "Tuyển sinh", path: "/tuyensinh" },
   { name: "Thông báo", path: "/thongbao" },
   { name: "Nghiên cứu", path: "/nghiencuu" },
   { name: "Giảng viên", path: "/giangvien" },
@@ -28,4 +27,10 @@ export const categories = [
       },
     ],
   },
+];
+export const categoriesForum = [
+  { name: "Tất cả bài viết", path: "/allPosts" },
+  { name: "Bài viết nổi bật", path: "/outstandingPosts" },
+  { name: "Kinh nghiệm", path: "/experience" },
+  { name: "Danh sách thành viên", path: "/members" },
 ];

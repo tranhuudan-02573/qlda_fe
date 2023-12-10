@@ -13,10 +13,11 @@
 .table td {
   font-size: 20px;
   text-align: center;
-  color: #0a125b;
+
   margin-top: 10px;
 }
-.table a {
+.table td a {
+  color: #0a125b;
   text-decoration: none;
 }
 tbody:before {
@@ -49,4 +50,3 @@ tbody:before {
   border-radius: 10px;
   cursor: pointer;
 }
-/* modal */

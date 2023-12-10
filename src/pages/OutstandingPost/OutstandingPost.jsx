@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import styles from "./Forum.module.css";
+import styles from "./OutstadingPost.module.css";
 import Modal from "../../components/Modal/Modal";
 import { useState } from "react";
-
-function Forum() {
+function OutstadingPost() {
   const [isOpen, setIsOpen] = useState(false);
   const handleCloseModal = () => {
     setIsOpen(!isOpen);
@@ -38,24 +37,9 @@ function Forum() {
                 src="https://png.pngtree.com/element_pic/17/04/27/70551c817cc76eac6465853d5d1063c1.jpg"
                 alt="o khoa"
               />
-              <Link to="/post">
-                {" "}
-                Quản lý sự cân bằng giữa công việc và cuộc sống...
-              </Link>
+              <Link to="/post"> Tình hình thị trường lao động</Link>
             </td>
-            <td>Trung Bảo</td>
-            <td>12/04/2023</td>
-          </tr>
-          <tr>
-            <td style={{ display: "flex", alignItems: "center" }}>
-              <img
-                className={styles.imgIcon}
-                src="https://png.pngtree.com/element_pic/17/04/27/70551c817cc76eac6465853d5d1063c1.jpg"
-                alt="o khoa"
-              />
-              <Link to="/post"> Hợp tác trong dự án và doanh nghiệp....</Link>
-            </td>
-            <td>Phan An</td>
+            <td>Minh Thư</td>
             <td>21/02/2023</td>
           </tr>
           <tr>
@@ -65,10 +49,25 @@ function Forum() {
                 src="https://png.pngtree.com/element_pic/17/04/27/70551c817cc76eac6465853d5d1063c1.jpg"
                 alt="o khoa"
               />
-              <Link to="/post"> Cập nhật về công nghệ mới...</Link>
+              <Link to="/post"> Hỗ trợ nghề nghiệp và mentorship</Link>
             </td>
-            <td>Nhựt Duy</td>
+            <td>Nhựt Hào</td>
             <td>30/03/2023</td>
+          </tr>
+          <tr>
+            <td style={{ display: "flex", alignItems: "center" }}>
+              <img
+                className={styles.imgIcon}
+                src="https://png.pngtree.com/element_pic/17/04/27/70551c817cc76eac6465853d5d1063c1.jpg"
+                alt="o khoa"
+              />
+              <Link to="/post">
+                {" "}
+                Sự phát triển cá nhân và chuyển đổi nghề nghiệp
+              </Link>
+            </td>
+            <td>Trung Bảo</td>
+            <td>12/04/2023</td>
           </tr>
           <tr>
             <td style={{ display: "flex", alignItems: "center" }}>
@@ -89,10 +88,7 @@ function Forum() {
                 src="https://png.pngtree.com/element_pic/17/04/27/70551c817cc76eac6465853d5d1063c1.jpg"
                 alt="o khoa"
               />
-              <Link to="/post">
-                {" "}
-                Thách thức đa văn hóa trong môi trường làm việc...
-              </Link>
+              <Link to="/post"> Phát triển kỹ năng lãnh đạo...</Link>
             </td>
             <td>Minh Huy</td>
             <td>02/06/2023</td>
@@ -109,6 +105,18 @@ function Forum() {
             <td>Ngọc Như</td>
             <td>24/10/2023</td>
           </tr>
+          <tr>
+            <td style={{ display: "flex", alignItems: "center" }}>
+              <img
+                className={styles.imgIcon}
+                src="https://png.pngtree.com/element_pic/17/04/27/70551c817cc76eac6465853d5d1063c1.jpg"
+                alt="o khoa"
+              />
+              <Link to="/post"> Xu hướng làm việc từ xa...</Link>
+            </td>
+            <td>Yến Nhi</td>
+            <td>14/11/2023</td>
+          </tr>
         </tbody>
       </table>
       <div className={styles.buttonContainer}>
@@ -121,4 +129,4 @@ function Forum() {
   );
 }
 
-export default Forum;
+export default OutstadingPost;

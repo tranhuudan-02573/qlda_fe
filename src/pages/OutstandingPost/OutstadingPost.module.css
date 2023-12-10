@@ -16,9 +16,7 @@
   color: #0a125b;
   margin-top: 10px;
 }
-.table a {
-  text-decoration: none;
-}
+
 tbody:before {
   content: "-";
   display: block;
@@ -49,4 +47,6 @@ tbody:before {
   border-radius: 10px;
   cursor: pointer;
 }
-/* modal */
+.table a {
+  text-decoration: none;
+}

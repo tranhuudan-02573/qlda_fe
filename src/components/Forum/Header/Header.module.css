@@ -1,0 +1,97 @@
+.wrapper {
+  height: 124px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  border-bottom: 1px solid #071cd6;
+}
+.wrapper a {
+  color: #071cd6;
+  text-decoration: none;
+}
+.actions button {
+  width: 100px;
+  padding: 10px 0;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  margin: 0 10px;
+  background-color: #919eab;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+.actions button a {
+  color: white;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+}
+.actions button:first-child {
+  background-color: #5969fb;
+}
+.right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.icon {
+  font-size: 32px;
+  transform: rotate(-15deg);
+  cursor: pointer;
+}
+.info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 10px;
+  border-radius: 30px;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 30px;
+}
+.imgIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  margin-bottom: 0;
+  border-radius: 50%;
+}
+.tippy-box {
+  width: 450px;
+}
+.textHead {
+  font-size: 24px;
+  padding: 10px 15px;
+}
+.notifications {
+  margin-bottom: 10px;
+}
+.notification {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.notifications .avatar {
+  display: inline-block;
+  margin: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.notifications .name {
+  font-size: 20px;
+}
+.notifications .notification {
+  color: #000;
+}
+.notifications .notification:hover {
+  color: blue;
+}
+/* .notification:hover {
+  color: blue;
+} */

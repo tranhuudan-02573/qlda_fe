@@ -1,7 +1,6 @@
-import Header from "../../components/Forum/Header/Header";
-import styles from "./ForumLayout.module.css";
+import Header from "../../../components/Forum/Header/Header";
+import styles from "../ForumLayout.module.css";
 import { CiSearch } from "react-icons/ci";
-import Navbar from "../../components/Forum/Navbar/Navbar";
 function ForumLayout({ children }) {
   return (
     <div className={styles.wrapper}>
@@ -12,10 +11,8 @@ function ForumLayout({ children }) {
         <button>Search</button>
       </div>
       <img src="https://fit.hcmuaf.edu.vn/data/banner_kcntt.png" alt="khoa" />
-      <Navbar />
       {children}
     </div>
   );
 }
-
 export default ForumLayout;

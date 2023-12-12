@@ -38,6 +38,14 @@
   align-items: center;
   gap: 10px;
 }
+.inputTopic {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+}
 .info .avatar {
   display: inline-block;
   margin: 0;

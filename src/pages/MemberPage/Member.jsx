@@ -1,14 +1,51 @@
 import styles from "./Member.module.css";
 import { FaRegFileAlt } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 function Member() {
   const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState([]);
+  const token = localStorage.getItem("token");
+
   const handleOpenModal = () => {
     setIsOpen(true);
   };
+  const getData = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/api/user/post`,
+
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        setData(response.data);
+      } else {
+        console.error("Failed to fetch post");
+      }
+    } catch (error) {
+      console.error("Failed to fetch post:", error);
+    }
+  };
+  const getCountPostByCreator = (value) => {
+    let count = 0;
+    data.forEach((item) => {
+      if (item.createBy === value) {
+        count++;
+      }
+    });
+    return count;
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
   const handleCloseModal = () => {
     setIsOpen(false);
   };
@@ -113,7 +150,7 @@ function Member() {
               </div>
             </td>
             <td>24/09/2023</td>
-            <td>0</td>
+            <td>{getCountPostByCreator("Nhut Duy")}</td>
           </tr>
           <tr>
             <td style={{ display: "flex", alignItems: "center" }}>

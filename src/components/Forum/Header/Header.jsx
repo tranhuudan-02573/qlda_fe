@@ -4,9 +4,46 @@ import { IoNotificationsOutline } from "react-icons/io5";
 import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
 import Popper from "../../Popper/Popper.jsx";
-
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function Header() {
-  let currentUser = true;
+  const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useState([]);
+  let currentUser = false;
+  if (localStorage.getItem("token") != null) {
+    currentUser = true;
+  }
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    currentUser = false;
+    navigate("/login");
+  };
+  const getInfoUser = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(
+        "http://localhost:8080/api/user/infoUser",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        setUserInfo(response.data);
+      } else {
+        console.error("Failed to fetch comments");
+      }
+    } catch (error) {
+      console.error("Failed to fetch comments:", error);
+    }
+  };
+  useEffect(() => {
+    getInfoUser();
+  }, []);
+  console.log(userInfo);
   return (
     <div className={styles.wrapper}>
       <h1>
@@ -68,21 +105,26 @@ function Header() {
           <div className={styles.info}>
             <img
               className={styles.imgIcon}
-              src="https://png.pngtree.com/element_pic/17/04/27/70551c817cc76eac6465853d5d1063c1.jpg"
+              src="https://i.pinimg.com/originals/01/48/0f/01480f29ce376005edcbec0b30cf367d.jpg"
               alt="o khoa"
             />
             <span style={{ fontSize: "20px", fontWeight: "bold" }}>
               {" "}
-              Phan An
+              {userInfo.firstName}
             </span>
           </div>
+          <button className={styles.logout} onClick={() => handleLogOut()}>
+            Đăng xuất
+          </button>
         </div>
       ) : (
         <div className={styles.actions}>
           <button>
             <Link to="/login">Login</Link>
           </button>
-          <button>Register</button>
+          <button>
+            <Link to="/signup">Register</Link>
+          </button>
         </div>
       )}
     </div>

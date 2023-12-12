@@ -1,19 +1,119 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./DetailPost.module.css";
 import { FaEarthAmericas } from "react-icons/fa6";
 import { FaRegMessage } from "react-icons/fa6";
 import { IoMdSend } from "react-icons/io";
 import { FaRegCircleXmark } from "react-icons/fa6";
-
+import { useParams } from "react-router-dom";
+import axios from "axios";
 function DetailPost() {
+  const token = localStorage.getItem("token");
+  const { id } = useParams();
+  const [post, setPost] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState("");
+  const [userInfo, setUserInfo] = useState([]);
+
+  const getPostById = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/api/user/post/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        setPost(response.data);
+      } else {
+        console.error("Failed to fetch post");
+      }
+    } catch (error) {
+      console.error("Failed to fetch post:", error);
+    }
+  };
+  const handleAddComment = async () => {
+    if (comment.length === 0) return;
+    const payload = { noiDung: comment };
+
+    try {
+      const response = await axios.post(
+        `http://localhost:8080/api/user/comment/${id}`,
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        window.location.reload();
+      } else {
+        console.error("Failed to fetch post");
+      }
+    } catch (error) {
+      console.error("Failed to fetch post:", error);
+    }
+  };
+  const getCommentsByPost = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/api/user/post/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        setComments(response.data.commentList);
+      } else {
+        console.error("Failed to fetch comments");
+      }
+    } catch (error) {
+      console.error("Failed to fetch comments:", error);
+    }
+  };
+  const getInfoUser = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(
+        "http://localhost:8080/api/user/infoUser",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        setUserInfo(response.data);
+      } else {
+        console.error("Failed to fetch comments");
+      }
+    } catch (error) {
+      console.error("Failed to fetch comments:", error);
+    }
+  };
+  useEffect(() => {
+    getPostById();
+    getCommentsByPost();
+    getInfoUser();
+    // eslint-disable-next-line
+  }, []);
+  console.log(comments);
   const inputRef = useRef();
   const [openComment, setOpenComment] = useState(false);
   const [value, setValue] = useState("");
   const handleOpenComment = () => {
     setOpenComment(true);
   };
-  const handleOnChange = (e) => {
-    setValue(e.target.value);
+  const handleComment = (e) => {
+    setComment(e.target.value);
   };
   const handleClear = () => {
     setValue("");
@@ -32,65 +132,34 @@ function DetailPost() {
             />
           </div>
           <div className={styles.right}>
-            <span className={styles.name}>Phan An</span>
+            <span className={styles.name}>{userInfo.firstName}</span>
             <span className={styles.time}>
               24 tháng 10 <FaEarthAmericas />
             </span>
           </div>
         </div>
-        <span className={styles.topic}>Chủ đề: Phát triển kỹ năng mềm....</span>
-        <p className={styles.content}>
-          Phát triển kỹ năng mềm là chìa khóa quan trọng cho sự nghiệp trong
-          lĩnh vực Công nghệ Thông tin. Trải qua học tập và làm việc, tôi nhận
-          thức sâu sắc về tầm quan trọng của kỹ năng giao tiếp, làm việc nhóm,
-          và lãnh đạo.
-        </p>
-        <p className={styles.content}>
-          Kỹ năng giao tiếp giúp tôi truyền đạt ý kiến một cách rõ ràng và xây
-          dựng mối quan hệ chặt chẽ. Làm việc nhóm đòi hỏi sự linh hoạt và sẵn
-          sàng lắng nghe tạo ra một môi trường tích cực và sáng tạo. Trong vai
-          trò lãnh đạo, tôi học được cách định hình mục tiêu và tạo động lực cho
-          đội ngũ
-        </p>
-        <p className={styles.content}>
-          Để phát triển kỹ năng mềm, tôi không ngừng học hỏi từ mọi trải nghiệm
-          và duy trì tư duy tích cực. Sự linh hoạt và sẵn sàng tiếp thu kiến
-          thức mới đã giúp tôi không chỉ làm việc hiệu quả mà còn tạo ra sự ảnh
-          hưởng tích cực trong sự nghiệp Công nghệ Thông tin
-        </p>
+        <span className={styles.topic}>{post.chuDe}</span>
+        <p className={styles.content}>{post.noiDung}</p>
+
         <div className={styles["list-container"]}>
           <ul className={styles["list-comment"]}>
-            <li className={styles.item}>
-              <div className={styles.left}>
-                <img
-                  className={styles.avatar}
-                  src="https://i.pinimg.com/736x/01/48/0f/01480f29ce376005edcbec0b30cf367d.jpg"
-                  alt="avatar"
-                />
-              </div>
-              <div className={styles.right}>
-                <span className={styles.name}>Trung Bảo</span>
-                <p className={styles.content}>Tuyệt vời quá chị</p>
-              </div>
-            </li>
-            <li className={styles.item}>
-              <div className={styles.left}>
-                <img
-                  className={styles.avatar}
-                  src="https://i.pinimg.com/736x/01/48/0f/01480f29ce376005edcbec0b30cf367d.jpg"
-                  alt="avatar"
-                />
-              </div>
-              <div className={styles.right}>
-                <span className={styles.name}>Trung Bảo</span>
-                <p className={styles.content}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                  corporis cupiditate, doloribus rerum ipsum repudiandae
-                  dolorem. Similique perspiciatis nesciunt atque, est ab harum
-                  ullam error, officiis dicta libero ipsa accusamus!
-                </p>
-              </div>
-            </li>
+            {comments.map((item) => {
+              return (
+                <li key={item.id} className={styles.item}>
+                  <div className={styles.left}>
+                    <img
+                      className={styles.avatar}
+                      src="https://i.pinimg.com/736x/01/48/0f/01480f29ce376005edcbec0b30cf367d.jpg"
+                      alt="avatar"
+                    />
+                  </div>
+                  <div className={styles.right}>
+                    <span className={styles.name}>{item.createBy}</span>
+                    <p className={styles.content}>{item.noiDung}</p>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
         {!openComment && (
@@ -118,8 +187,8 @@ function DetailPost() {
                 type="text"
                 className={styles.inputComment}
                 placeholder="Viết bình luận ..."
-                onChange={handleOnChange}
-                value={value}
+                onChange={handleComment}
+                value={comment}
               />
               {value.length > 0 && (
                 <FaRegCircleXmark
@@ -127,7 +196,10 @@ function DetailPost() {
                   onClick={handleClear}
                 />
               )}
-              <IoMdSend className={styles.send} />
+              <IoMdSend
+                className={styles.send}
+                onClick={() => handleAddComment()}
+              />
             </div>
           </div>
         )}

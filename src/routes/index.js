@@ -42,7 +42,7 @@ const publicRoutes = [
   { path: "/members", component: Member, layout: ForumLayout },
   { path: "/login", component: LoginForm, layout: null },
   { path: "/signup", component: Register, layout: null },
-  { path: "/post", component: DetailPost, layout: HeaderOnly },
+  { path: "/post/:id", component: DetailPost, layout: HeaderOnly },
   { path: "/profile", component: Profile, layout: HeaderOnly },
 ];
 

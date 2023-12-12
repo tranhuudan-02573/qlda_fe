@@ -95,3 +95,11 @@
 /* .notification:hover {
   color: blue;
 } */
+.logout {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+}

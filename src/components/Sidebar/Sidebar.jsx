@@ -1,5 +1,5 @@
 import styles from "./Sidebar.module.css";
-import { categories } from "../../utils/constanst";
+import { categories } from "../../utils/constants";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 const Sidebar = () => {

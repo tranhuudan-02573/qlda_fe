@@ -1,3 +1,8 @@
+import { MdAccountCircle } from "react-icons/md";
+import { RiNotification2Fill } from "react-icons/ri";
+import { MdSchool } from "react-icons/md";
+import { SiPostman } from "react-icons/si";
+
 export const categories = [
   { name: "Trang chủ", path: "/" },
   { name: "Đào tạo", path: "/daotao" },
@@ -33,4 +38,26 @@ export const categoriesForum = [
   { name: "Bài viết nổi bật", path: "/outstandingPosts" },
   { name: "Kinh nghiệm", path: "/experience" },
   { name: "Danh sách thành viên", path: "/members" },
+];
+export const categoriesAdmin = [
+  {
+    name: "Quản lý tài khoản",
+    path: "/admin/userManagement",
+    icon: <MdAccountCircle />,
+  },
+  {
+    name: "Quản lý thông báo",
+    path: "/admin/notificationManagement",
+    icon: <RiNotification2Fill />,
+  },
+  {
+    name: "Quản lý bài viết",
+    path: "/admin/postManagement",
+    icon: <SiPostman />,
+  },
+  {
+    name: "Quản lý chương trình đào tạo ",
+    path: "/admin/trainingManagement",
+    icon: <MdSchool />,
+  },
 ];

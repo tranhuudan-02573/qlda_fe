@@ -33,8 +33,12 @@
 }
 
 /* Thay đổi khoảng cách giữa các phần tử */
-.mb-3 {
+.mb-7 {
   margin-bottom: 1.5rem;
+  width: 600px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 }
 
 /* Thay đổi khoảng cách trên và dưới của nút đăng ký */
@@ -50,4 +54,17 @@
 /* Thay đổi màu chữ cho liên kết "Forgot password" */
 p a {
   color: #007bff;
+}
+.btnRegister {
+  margin: 20px 0;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 20px;
+  background-color: #1a82c9;
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
 }

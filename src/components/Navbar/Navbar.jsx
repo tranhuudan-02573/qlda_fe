@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.css";
 import { IoHome } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { categories } from "../../utils/constanst.js";
+import { categories } from "../../utils/constants.js";
 import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
 import Popper from "../Popper/Popper.jsx";

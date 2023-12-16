@@ -1,0 +1,12 @@
+.wrapper {
+  flex: 1;
+  padding: 20px;
+}
+.title {
+  font-size: 20px;
+}
+.item {
+  list-style-type: none;
+  font-size: 18px;
+  margin: 5px 0;
+}

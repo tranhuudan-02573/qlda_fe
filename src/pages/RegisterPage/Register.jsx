@@ -68,7 +68,7 @@ const Register = () => {
       .then((response) => response.json())
       .then((data) => {
         setResultMessage("Sign up success");
-        navigate("/forum");
+        navigate("/login");
       })
       .catch((error) => {
         setResultMessage("Your email already exists in the system");
@@ -78,135 +78,100 @@ const Register = () => {
   };
 
   return (
-    <div>
-      {!authenticated && (
-        <button
-          type="button"
-          className="btn btn-outline-primary ms-2"
-          data-bs-toggle="modal"
-          data-bs-target="#signupModal"
-        >
-          <span className="fa fa-user-plus me-1"></span> Register
-        </button>
-      )}
-
-      {authenticated && (
-        <button
-          type="button"
-          className="btn btn-outline-primary ms-2"
-          onClick={handleLogout}
-        >
-          <span className="fa fa-sign-out me-1"></span> Logout
-        </button>
-      )}
-
-      {/* Modal đăng ký */}
-      <div
-        className="modal fade"
-        id="signupModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Register
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+    <div className="wrapper">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title" id="exampleModalLabel">
+            Register
+          </h5>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div className="modal-body">
+          {/* Form đăng ký */}
+          <form onSubmit={handleSubmit}>
+            <div className="mb-7">
+              <label htmlFor="firstName" className="form-label">
+                First Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="firstName"
+                required
+                placeholder="le trung"
+                value={firstName}
+                onChange={handleFirstNameChange}
+              />
             </div>
-            <div className="modal-body">
-              {/* Form đăng ký */}
-              <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <label htmlFor="firstName" className="form-label">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="firstName"
-                    required
-                    placeholder="le trung"
-                    value={firstName}
-                    onChange={handleFirstNameChange}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="lastName" className="form-label">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="lastName"
-                    required
-                    placeholder="bao"
-                    value={lastName}
-                    onChange={handleLastNameChange}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email address
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    required
-                    placeholder="example@gmail.com"
-                    aria-describedby="emailHelp"
-                    value={email}
-                    onChange={handleEmailChange}
-                  />
-                  {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    aria-describedby="passwordHelp"
-                    placeholder="more than 8 characters and at least 1 uppercase character."
-                    id="password"
-                    required
-                    value={password}
-                    onChange={handlePasswordChange}
-                  />
-                  {/* <div id="passwordHelp" className="form-text">more than 8 characters and at least 1 uppercase character.</div> */}
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">
-                    Password Confirm
-                  </label>
-                  <input
-                    type="password"
-                    required
-                    className="form-control"
-                    aria-describedby="passwordHelp"
-                    placeholder="please confirm password"
-                    id="password"
-                  />
-                  <p>{resultMessage}</p>
-                </div>
-                <button
-                  type="submit"
-                  className="btn btn-outline-primary w-100 mt-5"
-                >
-                  Register
-                </button>
-              </form>
+            <div className="mb-7">
+              <label htmlFor="lastName" className="form-label">
+                Last Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="lastName"
+                required
+                placeholder="bao"
+                value={lastName}
+                onChange={handleLastNameChange}
+              />
             </div>
-          </div>
+            <div className="mb-7">
+              <label htmlFor="email" className="form-label">
+                Email address
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                required
+                placeholder="example@gmail.com"
+                aria-describedby="emailHelp"
+                value={email}
+                onChange={handleEmailChange}
+              />
+              {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
+            </div>
+            <div className="mb-7">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                aria-describedby="passwordHelp"
+                placeholder="more than 8 characters and at least 1 uppercase character."
+                id="password"
+                required
+                value={password}
+                onChange={handlePasswordChange}
+              />
+              {/* <div id="passwordHelp" className="form-text">more than 8 characters and at least 1 uppercase character.</div> */}
+            </div>
+            <div className="mb-7">
+              <label htmlFor="password" className="form-label">
+                Password Confirm
+              </label>
+              <input
+                type="password"
+                required
+                className="form-control"
+                aria-describedby="passwordHelp"
+                placeholder="please confirm password"
+                id="password"
+              />
+              <p>{resultMessage}</p>
+            </div>
+            <button type="submit" className="btnRegister">
+              Register
+            </button>
+          </form>
         </div>
       </div>
     </div>

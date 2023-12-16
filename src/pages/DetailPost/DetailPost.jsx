@@ -99,6 +99,27 @@ function DetailPost() {
       console.error("Failed to fetch comments:", error);
     }
   };
+  const deleteComment = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8080/api/user/comment/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        console.log("ok");
+        window.location.reload();
+      } else {
+        console.error("Failed to fetch comments");
+      }
+    } catch (error) {
+      console.error("Failed to fetch comments:", error);
+    }
+  };
   useEffect(() => {
     getPostById();
     getCommentsByPost();
@@ -134,7 +155,7 @@ function DetailPost() {
           <div className={styles.right}>
             <span className={styles.name}>{userInfo.firstName}</span>
             <span className={styles.time}>
-              24 tháng 10 <FaEarthAmericas />
+              {post.ngayDangBai} <FaEarthAmericas />
             </span>
           </div>
         </div>
@@ -157,6 +178,16 @@ function DetailPost() {
                     <span className={styles.name}>{item.createBy}</span>
                     <p className={styles.content}>{item.noiDung}</p>
                   </div>
+                  {userInfo.firstName === item.createBy ? (
+                    <span
+                      onClick={() => deleteComment(item.id)}
+                      className={styles.delete}
+                    >
+                      Xoá
+                    </span>
+                  ) : (
+                    <></>
+                  )}
                 </li>
               );
             })}

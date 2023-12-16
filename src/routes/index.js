@@ -19,6 +19,12 @@ import Register from "../pages/RegisterPage/Register.jsx";
 import DetailPost from "../pages/DetailPost/DetailPost.jsx";
 import HeaderOnly from "../layouts/ForumLayout/NoNavbar/ForumLayout.jsx";
 import Profile from "../pages/Profile/Profile.jsx";
+import AdminLayout from "../layouts/AdminLayout/AdminLayout.jsx";
+import HomeAdmin from "../pages/Admin/HomePage/Home.jsx";
+import UserManagement from "../pages/Admin/UserManagement/UserManagement.jsx";
+import NotificationManagement from "../pages/Admin/NotificationManagement/NotificationManagement.jsx";
+import PostManagement from "../pages/Admin/PostManagement/PostManagement.jsx";
+import TrainManagement from "../pages/Admin/TrainManagement/TrainManagement.jsx";
 const publicRoutes = [
   { path: "/", component: Home },
   { path: "/daotao", component: TrainingPage },
@@ -44,6 +50,27 @@ const publicRoutes = [
   { path: "/signup", component: Register, layout: null },
   { path: "/post/:id", component: DetailPost, layout: HeaderOnly },
   { path: "/profile", component: Profile, layout: HeaderOnly },
+  { path: "/admin/home", component: HomeAdmin, layout: AdminLayout },
+  {
+    path: "/admin/userManagement",
+    component: UserManagement,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/notificationManagement",
+    component: NotificationManagement,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/postManagement",
+    component: PostManagement,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/trainingManagement",
+    component: TrainManagement,
+    layout: AdminLayout,
+  },
 ];
 
 export { publicRoutes };

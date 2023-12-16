@@ -52,56 +52,58 @@ function Header() {
 
       {currentUser ? (
         <div className={styles.right}>
-          <Tippy
-            hideOnClick={false}
-            placement="bottom-end"
-            interactive
-            delay={[0, 700]}
-            render={(attrs) => (
-              <div className={styles["tippy-box"]} tabIndex="-1" {...attrs}>
-                <Popper>
-                  <h1 className={styles.textHead}>Thông báo</h1>
-                  <div className={styles.notifications}>
-                    <Link className={styles.notification}>
-                      <img
-                        src="https://i.pinimg.com/originals/01/48/0f/01480f29ce376005edcbec0b30cf367d.jpg"
-                        alt="avatar"
-                        className={styles.avatar}
-                      />
-                      <span className={styles.desc}>
-                        Trần Hữu Dân đã yêu cầu tham gia diễn đàn FITNLU.COM
-                      </span>
-                    </Link>
-                    <Link className={styles.notification}>
-                      <img
-                        src="https://i.pinimg.com/originals/01/48/0f/01480f29ce376005edcbec0b30cf367d.jpg"
-                        alt="avatar"
-                        className={styles.avatar}
-                      />
-                      <span className={styles.desc}>
-                        Phan An đã bình luận vào bài viết của bạn
-                      </span>
-                    </Link>
-                    <Link className={styles.notification}>
-                      <img
-                        src="https://i.pinimg.com/originals/01/48/0f/01480f29ce376005edcbec0b30cf367d.jpg"
-                        alt="avatar"
-                        className={styles.avatar}
-                      />
-                      <span className={styles.desc}>
-                        Phan An đã bình luận vào bài viết của bạn
-                      </span>
-                    </Link>
-                  </div>
-                </Popper>
-              </div>
-            )}
-          >
-            <span>
-              {" "}
-              <IoNotificationsOutline className={styles.icon} />
-            </span>
-          </Tippy>
+          <div>
+            <Tippy
+              hideOnClick={false}
+              placement="bottom-end"
+              interactive
+              delay={[0, 700]}
+              render={(attrs) => (
+                <div className={styles["tippy-box"]} tabIndex="-1" {...attrs}>
+                  <Popper>
+                    <h1 className={styles.textHead}>Thông báo</h1>
+                    <div className={styles.notifications}>
+                      <Link className={styles.notification}>
+                        <img
+                          src="https://i.pinimg.com/originals/01/48/0f/01480f29ce376005edcbec0b30cf367d.jpg"
+                          alt="avatar"
+                          className={styles.avatar}
+                        />
+                        <span className={styles.desc}>
+                          Trần Hữu Dân đã yêu cầu tham gia diễn đàn FITNLU.COM
+                        </span>
+                      </Link>
+                      <Link className={styles.notification}>
+                        <img
+                          src="https://i.pinimg.com/originals/01/48/0f/01480f29ce376005edcbec0b30cf367d.jpg"
+                          alt="avatar"
+                          className={styles.avatar}
+                        />
+                        <span className={styles.desc}>
+                          Phan An đã bình luận vào bài viết của bạn
+                        </span>
+                      </Link>
+                      <Link className={styles.notification}>
+                        <img
+                          src="https://i.pinimg.com/originals/01/48/0f/01480f29ce376005edcbec0b30cf367d.jpg"
+                          alt="avatar"
+                          className={styles.avatar}
+                        />
+                        <span className={styles.desc}>
+                          Phan An đã bình luận vào bài viết của bạn
+                        </span>
+                      </Link>
+                    </div>
+                  </Popper>
+                </div>
+              )}
+            >
+              <span>
+                {" "}
+                <IoNotificationsOutline className={styles.icon} />
+              </span>
+            </Tippy>
+          </div>
           <div className={styles.info}>
             <img
               className={styles.imgIcon}

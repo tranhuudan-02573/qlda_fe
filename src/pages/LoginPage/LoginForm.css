@@ -4,8 +4,12 @@
 
 .form-control {
   border-radius: 5px;
-  border: 1px solid #ffffff;
-  padding: 8px;
+  padding: 12px 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #000;
+  flex: 1;
+  font-size: 20px;
 }
 
 .form-text {
@@ -23,9 +27,11 @@
   color: #ffffff;
   text-decoration: none;
 }
-
 .forgot-password a:hover {
   text-decoration: underline;
+}
+.modal-header {
+  padding: 10px;
 }
 .modal-title {
   color: #333;
@@ -36,18 +42,36 @@
 .btn-close {
   color: #ffffff;
 }
-
-.modal-content {
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(120deg, #2980b9, #8e44ad);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-login {
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  width: 500px;
+  background-color: #ffffff;
 }
 
 .modal-body {
+  display: flex;
+  justify-content: center;
   padding: 20px;
 }
 
 .modal-dialog {
   margin-top: 100px;
+}
+.mb-3 {
+  width: 450px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin-top: 15px;
 }
 
 .modal {
@@ -65,20 +89,16 @@
 .modal-title {
   text-align: center;
 }
-.btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
-}
-
-.btn.btn-outline-primary:hover {
-  color: #fff;
-  background-color: #0c00b6;
-  border-color: #007bff;
-}
-
-.btn.btn-outline-primary .fa {
-  margin-right: 0.5em;
-}
-.text-lable {
-  color: black;
+.btnLogin {
+  margin: 20px 0;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 20px;
+  background-color: #1a82c9;
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
 }

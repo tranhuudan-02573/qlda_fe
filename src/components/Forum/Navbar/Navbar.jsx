@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.css";
-import { categoriesForum } from "../../../utils/constanst";
+import { categoriesForum } from "../../../utils/constants";
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";

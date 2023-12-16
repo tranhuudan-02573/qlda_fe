@@ -32,7 +32,12 @@ function NotificationManagement() {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:8080/api/product/thongBao/${id}`
+        `http://localhost:8080/api/admin/thongBao/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       if (response.status === 200) {
         window.location.reload();
@@ -50,8 +55,13 @@ function NotificationManagement() {
     const payload = { title: topic, content: content };
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/product/thongBao`,
-        payload
+        `http://localhost:8080/api/admin/thongBao`,
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
       if (response.status === 200) {

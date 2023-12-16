@@ -21,7 +21,6 @@ function TrainManagement() {
     }
   };
   const handleDelete = async (id) => {
-    console.log(1);
     try {
       const response = await axios.delete(
         `http://localhost:8080/api/admin/ctDaoTao/${id}`,

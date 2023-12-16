@@ -64,7 +64,7 @@ function PostManagement() {
           {posts.map((post, index) => {
             return (
               <tr className={styles.row}>
-                <td>{index}</td>
+                <td>{index + 1}</td>
                 <td
                   style={{ color: "#56bedd", width: "20%" }}
                   className={styles.content}

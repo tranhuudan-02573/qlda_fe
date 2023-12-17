@@ -16,13 +16,14 @@
   padding: 12px 0;
   text-align: center;
   cursor: pointer;
+  width: 100%;
 }
 .item a {
   color: white;
   text-decoration: none;
 }
 .menu {
-  width: 238px;
+  width: 340px;
 }
 .menu-list {
   height: 100%;

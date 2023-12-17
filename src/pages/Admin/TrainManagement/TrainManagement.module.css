@@ -10,6 +10,8 @@
   color: #999;
   border-collapse: separate;
   border-spacing: 0 1em;
+  height: 100%;
+  color: #000;
 }
 
 .button {
